@@ -9,10 +9,10 @@
       color: #00ff9c;
       font-family: monospace;
       text-align: center;
-      padding-top: 80px;
+      padding-top: 60px;
     }
     .box {
-      width: 600px;
+      width: 650px;
       margin: auto;
       border: 2px solid #00ff9c;
       padding: 30px;
@@ -27,20 +27,91 @@
     @keyframes blink {
       50% { opacity: 0; }
     }
-    small {
-      color: #aaa;
+    .progress {
+      width: 100%;
+      background: #111;
+      border: 1px solid #00ff9c;
+      margin-top: 20px;
+    }
+    .bar {
+      width: 0%;
+      height: 20px;
+      background: #00ff9c;
+    }
+    #terminal {
+      text-align: left;
+      margin-top: 20px;
+      font-size: 14px;
+      white-space: pre-line;
+    }
+    .reveal {
+      display: none;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <div class="box">
     <h1 class="blink">⚠ SECURITY ALERT ⚠</h1>
+
     <p>Unauthorized access attempt detected.</p>
+    <p>User: <b>Bro</b></p>
     <p>IP Address: <b>192.168.?.??</b></p>
-    <p>Device: <b>Unknown Browser</b></p>
-    <p>Status: <b>Monitoring...</b></p>
-    <br>
+    <p>Status: <b>Scanning system...</b></p>
+
+    <div class="progress">
+      <div class="bar" id="bar"></div>
+    </div>
+
+    <div id="terminal"></div>
+
+    <div class="reveal" id="reveal">
+      <h2>😂 RELAX BRO 😂</h2>
+      <p>This is just a prank.</p>
+      <p>No hacking. No tracking. You’re safe.</p>
+    </div>
+
     <small>This incident has been logged.</small>
   </div>
+
+<script>
+  // Fake progress bar
+  let width = 0;
+  const bar = document.getElementById("bar");
+  const progress = setInterval(() => {
+    if (width >= 100) {
+      clearInterval(progress);
+    } else {
+      width += 1;
+      bar.style.width = width + "%";
+    }
+  }, 50);
+
+  // Fake terminal typing
+  const terminal = document.getElementById("terminal");
+  const lines = [
+    "[+] Initializing security scan...",
+    "[+] Checking browser fingerprint...",
+    "[+] Analyzing suspicious behavior...",
+    "[!] Potential threat detected",
+    "[+] Uploading report to server...",
+    "[+] Finalizing..."
+  ];
+
+  let i = 0;
+  function typeLine() {
+    if (i < lines.length) {
+      terminal.textContent += lines[i] + "\n";
+      i++;
+      setTimeout(typeLine, 700);
+    }
+  }
+  typeLine();
+
+  // Reveal prank after 6 seconds
+  setTimeout(() => {
+    document.getElementById("reveal").style.display = "block";
+  }, 6000);
+</script>
 </body>
 </html>
