@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Notice</title>
+  <style>
+    body {
+      background: #0b0f14;
+      color: #00ff9c;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+    .box {
+      width: 600px;
+      margin: auto;
+      border: 2px solid #00ff9c;
+      padding: 30px;
+      box-shadow: 0 0 20px #00ff9c;
+    }
+    h1 {
+      color: #ff5555;
+    }
+    .blink {
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    small {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1 class="blink">⚠ SECURITY ALERT ⚠</h1>
+    <p>Unauthorized access attempt detected.</p>
+    <p>IP Address: <b>192.168.?.??</b></p>
+    <p>Device: <b>Unknown Browser</b></p>
+    <p>Status: <b>Monitoring...</b></p>
+    <br>
+    <small>This incident has been logged.</small>
+  </div>
+</body>
+</html>
